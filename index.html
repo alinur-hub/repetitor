@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анна Иванова — репетитор по математике</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Onest:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eef3f1;--surface:#fff;--ink:#12372f;--muted:#4d6b63;--accent:#f2c94c;--on-accent:#12372f;--line:#c9d8d3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1f1b;--surface:#16302a;--ink:#eaf3f0;--muted:#9bb7ae;--line:#2a4a42}}
+:root[data-theme="dark"]{--bg:#0f1f1b;--surface:#16302a;--ink:#eaf3f0;--muted:#9bb7ae;--line:#2a4a42}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Onest,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:Unbounded,Arial,sans-serif;font-weight:600;line-height:1.15;margin:0}
+h1{font-size:clamp(30px,8vw,52px);margin-bottom:16px}
+h2{font-size:24px;margin-bottom:18px}
+section{padding:36px 0}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-weight:600}
+.top a{color:var(--ink);text-decoration:none;margin-left:16px;font-size:15px}
+.lead{color:var(--muted);font-size:19px;max-width:46ch;margin:0 0 24px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font:600 17px Onest,Arial,sans-serif;padding:14px 26px;border-radius:10px;text-decoration:none;border:0;cursor:pointer}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0 0 28px}
+.facts li{border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:15px;background:var(--surface)}
+.board{background:#12372f;color:#eaf3f0;border-radius:14px;padding:22px;margin-top:36px}
+.board p{margin:0 0 8px;color:#9bb7ae;font-size:15px}
+.eq{font-family:Unbounded,Arial,sans-serif;font-size:clamp(20px,6vw,30px);margin:0 0 14px}
+.board .btn{padding:10px 18px;font-size:15px}
+#steps{margin:14px 0 0;line-height:1.9;display:none}
+#steps.on{display:block}
+.grid{display:grid;gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.row b{font-size:20px;white-space:nowrap}
+.card small{color:var(--muted)}
+.hit{border-color:var(--ink);border-width:2px}
+.steps{padding-left:22px;margin:0}.steps li{margin-bottom:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0;color:var(--muted)}
+form{display:grid;gap:12px}
+label{font-size:15px;color:var(--muted);display:grid;gap:4px}
+input,select{font:inherit;padding:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+#msg{color:var(--muted);font-size:15px;min-height:22px;margin:0}
+footer{color:var(--muted);font-size:14px;padding:24px 0 48px}
+.plan{color:inherit;text-decoration:none;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>Анна Иванова</span><nav><a href="#price">Цены</a><a href="#reviews">Отзывы</a><a href="#contact">Запись</a></nav></div>
+
+  <section>
+    <h1>Подтяну математику к ОГЭ и ЕГЭ</h1>
+    <p class="lead">Репетитор с опытом 5 лет. Объясняю по-человечески, без зубрёжки.</p>
+    <ul class="facts"><li>5 лет опыта</li><li>Онлайн в Zoom</li><li>Пробное занятие бесплатно</li></ul>
+    <a class="btn" href="#contact">Записаться на пробное</a>
+    <div class="board">
+      <p>Попробуйте: как объясняю я</p>
+      <div class="eq">x² − 5x + 6 = 0</div>
+      <button class="btn" id="show" type="button">Показать решение</button>
+      <div id="steps">1. D = 25 − 24 = 1<br>2. x = (5 ± 1) / 2<br>3. Ответ: x = 2 и x = 3</div>
+    </div>
+  <section id="price">
+  <h2>Цены</h2>
+  <div class="grid">
+    <a class="card row plan" href="#contact" data-plan="Занятие 60 минут"><span>Занятие 60 минут</span><b>1000 ₽</b></a>
+    <a class="card row plan hit" href="#contact" data-plan="ОГЭ, 8 занятий"><span>ОГЭ, 8 занятий <small>— выгоднее на 800 ₽</small></span><b>7200 ₽</b></a>
+    <a class="card row plan" href="#contact" data-plan="ЕГЭ, 8 занятий"><span>ЕГЭ, 8 занятий <small>— выгоднее на 400 ₽</small></span><b>7600 ₽</b></a>
+  </div>
+  </section>
+
+  <section>
+    <h2>Как проходят занятия</h2>
+    <ol class="steps">
+      <li>Пробное занятие: находим пробелы.</li>
+      <li>Составляю план под ваш экзамен и дату.</li>
+      <li>Занимаемся 2 раза в неделю, после каждого занятия есть домашка.</li>
+      <li>Раз в месяц пробный экзамен и разбор ошибок.</li>
+    </ol>
+  </section>
+
+  <section id="reviews">
+    <h2>Отзывы</h2>
+    <div class="grid">
+      <div class="card">«Сын поднял оценку с 3 до 5 за три месяца.»<br><small>Мария, мама ученика 9 класса</small></div>
+      <div class="card">«Наконец понял дроби. Объясняет очень понятно.»<br><small>Дмитрий, 10 класс</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Частые вопросы</h2>
+    <div class="grid">
+      <details><summary>Сколько длится занятие?</summary><p>60 минут, при желании можно 90.</p></details>
+      <details><summary>Как оплачивать?</summary><p>Переводом на карту после занятия.</p></details>
+      <details><summary>Что если не подойдёт?</summary><p>Пробное занятие бесплатно, без обязательств.</p></details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Записаться на пробное</h2>
+    <form id="f">
+      <label>Ваше имя<input id="n" required autocomplete="name"></label>
+      <label>Класс ученика<select id="c"><option>9 класс (ОГЭ)</option><option>11 класс (ЕГЭ)</option><option>Другой класс</option></select></label>
+      <label>Тариф<select id="p"><option>Занятие 60 минут</option><option>ОГЭ, 8 занятий</option><option>ЕГЭ, 8 занятий</option></select></label>
+      <button class="btn" type="submit">Написать в Telegram</button>
+      <p id="msg" aria-live="polite"></p>
+    </form>
+  </section>
+  <footer>© 2026 Анна Иванова</footer>
+</div>
+<script>
+var TG = "Goj1run";
+document.querySelectorAll(".plan").forEach(function(a){
+  a.onclick = function(){ document.getElementById("p").value = a.dataset.plan; };
+});
+document.getElementById("show").onclick = function(){
+  var s = document.getElementById("steps");
+  s.classList.toggle("on");
+  this.textContent = s.classList.contains("on") ? "Скрыть решение" : "Показать решение";
+};
+document.getElementById("f").onsubmit = function(e){
+  e.preventDefault();
+  var t = "Здравствуйте! Меня зовут " + document.getElementById("n").value +
+    ". Хочу пробное занятие, " + document.getElementById("c").value + ". Интересует" + document.getElementById("p").value + ".";
+  var m = document.getElementById("msg");
+  try { navigator.clipboard.writeText(t); m.textContent = "Текст скопирован. Вставьте его в чат."; }
+  catch(x){ m.textContent = "Откройте чат и напишите: " + t; }
+  window.open("https://t.me/" + TG, "_blank");
+};
+</script>
+</body>
+</html>
